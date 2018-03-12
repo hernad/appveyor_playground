@@ -33,7 +33,7 @@ configuration:
 #- if [%COMPILER%]==[MinGW-w64] cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=C:\mingw64 -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ..
 
 build_script:
-- '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
+- 
 
 on_success:
 - cd C:\
@@ -51,6 +51,10 @@ on_success:
 #    on:
 #      appveyor_repo_tag: true
 
+artifacts: 
+  - path: '%APPVEYOR_BUILD_FOLDER%\hello.zip'
+    name: hello.zip
+
 deploy:
 - provider: BinTray
   username: hernad
@@ -61,4 +65,4 @@ deploy:
   publish: true
   override: true
   #explode: true
-  artifact: hello.zip
+
