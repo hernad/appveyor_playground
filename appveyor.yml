@@ -9,6 +9,9 @@ skip_commits:
   author: /John|Jack/
 
 # https://www.appveyor.com/docs/environment-variables/
+# https://github.com/scivision/pymap3d/blob/master/.appveyor.yml
+# https://www.appveyor.com/docs/getting-started-with-appveyor-for-linux/ - CI_WINDOWS, CI_LINUX 
+# https://stefanscherer.github.io/setup-windows-docker-ci-appveyor/
 
 environment:
   # these variables are common to all jobs
@@ -20,9 +23,7 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
     MSYS2_ARCH: i686
     MSYSTEM: MINGW32
-    BUILD_WINDOWS: False
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-    BUILD_LINUX: True
 
 platform:
   - x86
