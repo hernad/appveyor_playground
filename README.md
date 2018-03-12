@@ -1,9 +1,10 @@
-# Appveyor build
+#  Appveyor harbour application playground
 
-- commit messages must contain "BUILD_RELEASE"
+## Appveyor build
 
-- example:
+commit messages must contain "BUILD_RELEASE"
 
+example:
 <pre>
 $ git commit -am "BUILD_RELEASE 2.0.0"
 [master afe29b9] BUILD_RELEASE 2.0.0
