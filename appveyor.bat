@@ -1,3 +1,7 @@
+
+REM https://superuser.com/questions/345964/start-bash-shell-cygwin-with-correct-path-without-changing-directory
+set CHERE_INVOKING=yes
+
 rem Matrix-driven Appveyor CI script for libmypaint
 rem Currently only does MSYS2 builds.
 rem https://www.appveyor.com/docs/installed-software#mingw-msys-cygwin
@@ -26,7 +30,6 @@ cd %APPVEYOR_BUILD_FOLDER%
 bash -xlc "cd /c ; curl -LO https://dl.bintray.com/hernad/windows/hbwin.tar.gz ; tar xf hbwin.tar.gz"
 set PATH=C:\hbwin\bin;%PATH%
 
-set CHERE_INVOKING=yes
 
 rem Build/test scripting
 bash -xlc "set pwd"
