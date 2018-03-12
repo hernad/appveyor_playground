@@ -39,4 +39,4 @@ REM bash -xlc "make distcheck"
 
 REM bash -xlc "gcc --version"
 
-bash -xlc "hbmk2 -gtstd hello.prg ; ./hello.exe ; zip hello_${APPVEYOR_REPO_TAG_NAME} hello.exe"
+bash -xlc "hbmk2 -gtstd hello.prg ; ./hello.exe ; zip hello_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
