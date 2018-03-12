@@ -6,7 +6,7 @@ rem    MSYS2_ARCH:  x86_64 or i686
 rem    MSYSTEM:  MINGW64 or MINGW32
 
 rem Set the paths appropriately
-PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
+set PATH=C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
 
 rem Upgrade the MSYS2 platform
 REM bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
@@ -24,9 +24,9 @@ REM bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-gobject-int
 rem Invoke subsequent bash in the build tree
 cd %APPVEYOR_BUILD_FOLDER%
 bash -xlc "cd /c ; curl -LO https://dl.bintray.com/hernad/windows/hbwin.tar.gz ; tar xf hbwin.tar.gz"
-PATH C:\hbwin\bin;%PATH%
+set PATH=C:\hbwin\bin;%PATH%
 
-set CHERE_INVOKING=yes
+REM set CHERE_INVOKING=yes
 
 rem Build/test scripting
 bash -xlc "set pwd"
