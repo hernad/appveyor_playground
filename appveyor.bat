@@ -26,7 +26,7 @@ cd %APPVEYOR_BUILD_FOLDER%
 bash -xlc "cd /c ; curl -LO https://dl.bintray.com/hernad/windows/hbwin.tar.gz ; tar xf hbwin.tar.gz"
 set PATH=C:\hbwin\bin;%PATH%
 
-REM set CHERE_INVOKING=yes
+set CHERE_INVOKING=yes
 
 rem Build/test scripting
 bash -xlc "set pwd"
