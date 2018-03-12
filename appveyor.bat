@@ -11,7 +11,7 @@ PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
 rem Upgrade the MSYS2 platform
 REM bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
 REM bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
-bash -xlc "pacman --noconfirm -S curl"
+bash -xlc "pacman --noconfirm -S curl zip"
 
 rem Install required tools
 REM bash -xlc "pacman --noconfirm -S --needed base-devel"
@@ -39,4 +39,4 @@ REM bash -xlc "make distcheck"
 
 REM bash -xlc "gcc --version"
 
-bash -xlc "hbmk2 -gtstd hello.prg ; ./hello.exe "
+bash -xlc "hbmk2 -gtstd hello.prg ; ./hello.exe ; zip hello hello.exe"

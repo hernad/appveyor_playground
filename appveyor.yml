@@ -1,4 +1,6 @@
 image: Visual Studio 2015
+
+
 environment:
   # these variables are common to all jobs
   BUILD_OWNER: hernad
@@ -42,3 +44,22 @@ on_success:
 #  fast_finish: true
 
 deploy: off
+
+
+#deploy:
+#  - provider: Environment
+#    name: production
+#    on:
+#      appveyor_repo_tag: true
+
+deploy:
+- provider: BinTray
+  username: hernad
+  subject: hernad
+  repo: appveyor
+  package: playground
+  #version: version
+  publish: true
+  override: true
+  #explode: true
+  artifact: hello.zip
