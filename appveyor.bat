@@ -30,11 +30,13 @@ set CHERE_INVOKING=yes
 
 rem Build/test scripting
 bash -xlc "set pwd"
-bash -xlc "env"
-bash -xlc "hbmk2 -version"
+REM bash -xlc "env"
+REM bash -xlc "hbmk2 -version"
 
 REM bash -xlc "./autogen.sh"
 REM bash -xlc "./configure"
 REM bash -xlc "make distcheck"
 
-bash -xlc "gcc --version"
+REM bash -xlc "gcc --version"
+
+bash -xlc "hbmk2 hello.prg ; ./hello.exe "
