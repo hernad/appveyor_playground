@@ -1,16 +1,13 @@
 image: Visual Studio 2015
 environment:
   # these variables are common to all jobs
-  common_var1: value1
-  common_var2: value2
+  BUILD_OWNER: hernad
 
-  matrix:
-    - BUILD_TYPE: Release
-      COMPILER: MinGW
-      #MINGW_DIR: C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32
-      #PLATFORM: Win32
-      MSYS2_ARCH: i686
-      MSYSTEM: MINGW64
+matrix:
+   #- MSYS2_ARCH: x86_64
+   #  MSYSTEM: MINGW64
+   - MSYS2_ARCH: i686
+     MSYSTEM: MINGW32
 
 platform:
   - x86
@@ -38,7 +35,7 @@ build_script:
 
 on_success:
 - cd C:\
-- if [%BUILD_TYPE%]==[Release] echo "on success"
+- if [%BUILD_TYPE%]==[Release] echo "SUCCESS"
 
 
 #matrix:
