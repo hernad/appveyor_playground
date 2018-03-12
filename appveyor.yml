@@ -1,6 +1,6 @@
 image: 
   - Visual Studio 2015
-  - ubuntu
+  - Ubuntu
 
 only_commits:
   message: /BUILD_RELEASE/
@@ -21,7 +21,7 @@ environment:
     MSYS2_ARCH: i686
     MSYSTEM: MINGW32
     BUILD_WINDOWS: False
-  - APPVEYOR_BUILD_WORKER_IMAGE: ubuntu
+  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
     BUILD_LINUX: True
 
 platform:
@@ -46,8 +46,9 @@ configuration:
 #- if [%COMPILER%]==[MinGW-w64] cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=C:\mingw64 -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ..
 
 build_script:
-- if [%BUILD_WINDOWS%] '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
-- if [%BUILD_LINUX%] '%APPVEYOR_BUILD_FOLDER%\appveyor.sh'
+- cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
+
+- sh: '%APPVEYOR_BUILD_FOLDER%\appveyor.sh'
 
 on_success:
 - cd C:\
