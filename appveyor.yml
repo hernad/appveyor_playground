@@ -6,6 +6,7 @@ environment:
   matrix:
     - BUILD_TYPE: Release
       COMPILER: MinGW
+      MINGW_DIR: C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1
       PLATFORM: Win32
       WITH_MPFR: yes
 
@@ -15,6 +16,11 @@ platform:
 configuration:
   - Release
 
+
+before_build:
+- set Path=%CD%\%MINGW_DIR%\bin;%Path%
+- g++ --version
+- mingw32-make --version
 
 build_script:
 - mkdir build
