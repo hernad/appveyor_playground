@@ -1,0 +1,33 @@
+environment:
+  # these variables are common to all jobs
+  common_var1: value1
+  common_var2: value2
+
+  matrix:
+    - BUILD_TYPE: Release
+      COMPILER: MinGW
+      PLATFORM: Win32
+      WITH_MPFR: yes
+
+platform:
+  - x86
+
+configuration:
+  - Release
+
+
+build_script:
+- mkdir build
+- cd build
+- if [%COMPILER%]==[MinGW] echo "hello world"
+- if [%COMPILER%]==[MinGW] gcc --version
+#- if [%COMPILER%]==[MinGW-w64] cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=C:\mingw64 -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ..
+
+
+on_success:
+- cd C:\
+- if [%BUILD_TYPE%]==[Release] echo "on success"
+
+
+matrix:
+  fast_finish: true
