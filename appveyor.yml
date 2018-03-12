@@ -54,8 +54,8 @@ on_success:
 
 artifacts: 
   # relative to build folder
-  - path: hello.zip
-    name: 'hello_$(APPVEYOR_REPO_TAG_NAME).zip'
+  - path: hello_$(APPVEYOR_REPO_TAG_NAME).zip
+
 
 deploy:
 - provider: BinTray
