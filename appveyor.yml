@@ -1,5 +1,6 @@
 image: Visual Studio 2015
 
+# https://www.appveyor.com/docs/environment-variables/
 
 environment:
   # these variables are common to all jobs
@@ -62,10 +63,11 @@ deploy:
   subject: hernad
   repo: appveyor
   package: playground
-  #version: version
+  version: '$(APPVEYOR_REPO_TAG_NAME)'
   api_key:
     secure: CmTociD4LaDugZgY8k5Esn0tcA1nGvV583hTrbUGmGrnBtb6B1xyArOBmFzN5TjTLuRrfB9kBNiYtqyhBf0v2HZE8uKm2cl8zGoYTU8Afb0=
   publish: true
   override: true
   #explode: true
-
+  on:
+    appveyor_repo_tag: true
