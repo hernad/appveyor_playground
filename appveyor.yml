@@ -1,3 +1,4 @@
+image: Visual Studio 2015
 environment:
   # these variables are common to all jobs
   common_var1: value1
