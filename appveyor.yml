@@ -7,9 +7,10 @@ environment:
   matrix:
     - BUILD_TYPE: Release
       COMPILER: MinGW
-      MINGW_DIR: C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32
-      PLATFORM: Win32
-      WITH_MPFR: yes
+      #MINGW_DIR: C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32
+      #PLATFORM: Win32
+      MSYS2_ARCH: i686
+      MSYSTEM: MINGW64
 
 platform:
   - x86
@@ -18,25 +19,29 @@ configuration:
   - Release
 
 
-before_build:
-- set Path=%CD%\%MINGW_DIR%\bin;%Path%
-- echo %PATH%
-- dir %MINGW_DIR%
-- g++ --version
-- mingw32-make --version
+#before_build:
+#- set Path=%CD%\%MINGW_DIR%\bin;%Path%
+#- echo %PATH%
+#- dir %MINGW_DIR%
+#- g++ --version
+#- mingw32-make --version
 
-build_script:
-- mkdir build
-- cd build
-- if [%COMPILER%]==[MinGW] echo "hello world"
-- if [%COMPILER%]==[MinGW] gcc --version
+#build_script:
+#- mkdir build
+#- cd build
+#- if [%COMPILER%]==[MinGW] echo "hello world"
+#- if [%COMPILER%]==[MinGW] gcc --version
 #- if [%COMPILER%]==[MinGW-w64] cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=C:\mingw64 -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ..
 
+build_script:
+- '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
 
 on_success:
 - cd C:\
 - if [%BUILD_TYPE%]==[Release] echo "on success"
 
 
-matrix:
-  fast_finish: true
+#matrix:
+#  fast_finish: true
+
+deploy: off
