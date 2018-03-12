@@ -7,7 +7,7 @@ environment:
   matrix:
     - BUILD_TYPE: Release
       COMPILER: MinGW
-      MINGW_DIR: C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1
+      MINGW_DIR: C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32
       PLATFORM: Win32
       WITH_MPFR: yes
 
