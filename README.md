@@ -1,4 +1,4 @@
 # appveyor build
 
-- Build tags only : yes
+- commit messages must contain "BUILD_RELEASE"
 
