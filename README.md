@@ -15,3 +15,13 @@ $ git tag 2.0.0
 $ git push origin --tags
 Counting objects: 3, done.
 </pre>
+
+
+## Notes
+
+- https://www.appveyor.com/docs/environment-variables/
+- https://github.com/scivision/pymap3d/blob/master/.appveyor.yml
+- https://www.appveyor.com/docs/getting-started-with-appveyor-for-linux/ - CI_WINDOWS, CI_LINUX 
+- https://stefanscherer.github.io/setup-windows-docker-ci-appveyor/
+- http://conan-docs.readthedocs.io/en/feature-cmake-toolchain-file/integrations/appveyor.html
+
