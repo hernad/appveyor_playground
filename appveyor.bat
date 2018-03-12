@@ -23,7 +23,7 @@ REM bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-gobject-int
 
 rem Invoke subsequent bash in the build tree
 cd %APPVEYOR_BUILD_FOLDER%
-bash -xlc "cd /c ; curl -LO https://dl.bintray.com/hernad/windows/hbwin.tar.gz ; tar xvf hbwin.tar.gz"
+bash -xlc "cd /c ; curl -LO https://dl.bintray.com/hernad/windows/hbwin.tar.gz ; tar xf hbwin.tar.gz"
 PATH C:\hbwin\bin;%PATH%
 
 set CHERE_INVOKING=yes
@@ -39,4 +39,4 @@ REM bash -xlc "make distcheck"
 
 REM bash -xlc "gcc --version"
 
-bash -xlc "hbmk2 hello.prg ; ./hello.exe "
+bash -xlc "hbmk2 -gtstd hello.prg ; ./hello.exe "
