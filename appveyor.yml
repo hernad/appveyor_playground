@@ -43,8 +43,7 @@ on_success:
 #matrix:
 #  fast_finish: true
 
-deploy: off
-
+# deploy: off
 
 #deploy:
 #  - provider: Environment
