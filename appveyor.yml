@@ -23,8 +23,8 @@ environment:
     MSYSTEM: MINGW32
     BUILD_ARTIFACT: windows_x86
 
-  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-    BUILD_ARTIFACT: linux_x86
+  #- APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+  #  BUILD_ARTIFACT: linux_x86
 
 platform:
   - x86
@@ -32,6 +32,15 @@ platform:
 configuration:
   - Release
 
+services:
+  - postgresql96
+  on:
+    BUILD_ARTIFACT: windows_x86
+
+SET PGUSER=postgres
+SET PGPASSWORD=Password12!
+PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
+createdb f18_test
 
 #before_build:
 #- set Path=%CD%\%MINGW_DIR%\bin;%Path%

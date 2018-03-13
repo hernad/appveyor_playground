@@ -24,6 +24,8 @@ rem Install the relevant native dependencies
 REM bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-json-c"
 REM bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-glib2"
 REM bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-gobject-introspection"
+bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-postgresql"
+
 
 rem Invoke subsequent bash in the build tree
 cd %APPVEYOR_BUILD_FOLDER%
@@ -42,4 +44,4 @@ REM bash -xlc "make distcheck"
 
 REM bash -xlc "gcc --version"
 
-bash -xlc "hbmk2 -gtstd hello.prg ; ./hello.exe ; zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
+bash -xlc "export HB_ARCHITECTURE=win; export HB_COMPILER=mingw; hbmk2 -gtstd hello.prg ; ./hello.exe ; zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
