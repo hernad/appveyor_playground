@@ -88,7 +88,7 @@ deploy:
   #explode: true
   on:
     appveyor_repo_tag: true
-    CI_WINDOWS: true
+    BUILD_ARTIFACT: windows_x86
 
 - provider: BinTray
   name: bintray hernad ubuntu
@@ -104,4 +104,4 @@ deploy:
   #explode: true
   on:
     appveyor_repo_tag: true
-    CI_LINUX: true
+    BUILD_ARTIFACT: linux_x86
