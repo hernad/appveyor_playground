@@ -21,7 +21,10 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
     MSYS2_ARCH: i686
     MSYSTEM: MINGW32
+    BUILD_ARTIFACT: windows_x86
+
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+    BUUILD_ARTIFACT: linux_x86
 
 platform:
   - x86
@@ -67,7 +70,7 @@ on_success:
 
 artifacts: 
   # relative to build folder
-  - path: hello_$(APPVEYOR_REPO_TAG_NAME).zip
+  - path: hello_$(BUILD_ARTIFACT)_$(APPVEYOR_REPO_TAG_NAME).zip
 
 
 deploy:
