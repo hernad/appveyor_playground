@@ -9,6 +9,8 @@ REQUEST SQLMIX
 
 ANNOUNCE RDDSYS
 
+PROCEDURE Main()
+
 ? "hello world from harbour :)"
 
 ? "RDDs:"; AEval( rddList(), {| x | QQOut( "", x ) } )
@@ -25,3 +27,5 @@ dbUseArea( .T., , "SELECT version() AS ver", "INFO" )
 
 ?
 ?
+
+RETURN
