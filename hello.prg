@@ -1,3 +1,4 @@
+#require "hbpgsql"
 #require "rddsql"
 #require "sddpg"
 
@@ -11,14 +12,22 @@ ANNOUNCE RDDSYS
 
 PROCEDURE Main()
 
+LOCAL oServer, pConn
+
 ? "hello world from harbour :)"
 
 rddSetDefault( "SQLMIX" )
 
 ? "RDDs:"; AEval( rddList(), {| x | QQOut( "", x ) } )
 
+#require "hbpgsql"
+
+oServer := TPQServer():New( "localhost", "F18_test", "postgres", "Password12!" )
+
+pConn := oServer:pDB
+
 // postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
-IF rddInfo( RDDI_CONNECT, { "POSTGRESQL", "postgresql://postgres:Password12!@localhost/F18_test" } ) == 0
+IF rddInfo( RDDI_CONNECT, { "POSTGRESQL", pConn } ) == 0
       ? "Could not connect to the server"
       RETURN
 ENDIF
