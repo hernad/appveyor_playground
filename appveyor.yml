@@ -12,6 +12,8 @@ skip_commits:
 environment:
   # these variables are common to all jobs
   BUILD_OWNER: hernad
+  # disable powershell on linux
+  APPVEYOR_YML_DISABLE_PS_LINUX: true
 
   matrix:
   # - MSYS2_ARCH: x86_64
@@ -45,12 +47,12 @@ configuration:
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
 
-- sh: '${APPVEYOR_BUILD_FOLDER}/appveyor.sh'
+- sh: '$APPVEYOR_BUILD_FOLDER}/appveyor.sh'
 
 on_success:
 #- cmd: cd C:\
-- if [%BUILD_TYPE%]==[Release] echo "SUCCESS"
-
+- cmd: if [%BUILD_TYPE%]==[Release] echo "SUCCESS"
+- sh: echo "Ubuntu sucess :)"
 
 #matrix:
 #  fast_finish: true
