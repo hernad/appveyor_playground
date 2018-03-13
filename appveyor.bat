@@ -44,4 +44,4 @@ REM bash -xlc "make distcheck"
 
 REM bash -xlc "gcc --version"
 
-bash -xlc "export HB_ARCHITECTURE=win; export HB_COMPILER=mingw; hbmk2 -gtstd hello.prg ; ./hello.exe ; zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
+bash -xlc "export MSYS2=c:\\msys64\\mingw32 ; export HB_WITH_PGSQL=$MSYS2\\include; export HB_ARCHITECTURE=win; export HB_COMPILER=mingw; hbmk2 hello.hbp ; zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
