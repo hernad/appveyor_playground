@@ -1,3 +1,14 @@
+#require "rddsql"
+#require "sddpg"
+
+#include "dbinfo.ch"
+#include "error.ch"
+
+REQUEST SDDPG
+REQUEST SQLMIX
+
+ANNOUNCE RDDSYS
+
 ? "hello world from harbour :)"
 ?
 ?
