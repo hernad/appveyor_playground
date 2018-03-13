@@ -33,6 +33,6 @@ echo $PATH
 #hbmk2 -version
 hbmk2 hello.hbp
 #./hello
-
+cp -av /usr/lib/i386-linux-gnu/libpq.so* .
 
 zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello
