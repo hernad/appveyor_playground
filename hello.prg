@@ -11,7 +11,6 @@ ANNOUNCE RDDSYS
 
 ? "hello world from harbour :)"
 
-
 ? "RDDs:"; AEval( rddList(), {| x | QQOut( "", x ) } )
 
 // postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
