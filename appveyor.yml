@@ -35,25 +35,12 @@ configuration:
 services:
   - postgresql96
 
-
 before_build:
-  - cmd: 'SET PGUSER=postgres'
-  - cmd: 'SET PGPASSWORD=Password12!'
-  - cmd: 'PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%'
-  - cmd: 'createdb F18_test'
+- cmd: SET PGUSER=postgres
+- cmd: SET PGPASSWORD=Password12!
+- cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
+- cmd: createdb F18_test
 
-#- set Path=%CD%\%MINGW_DIR%\bin;%Path%
-#- echo %PATH%
-#- dir %MINGW_DIR%
-#- g++ --version
-#- mingw32-make --version
-
-#build_script:
-#- mkdir build
-#- cd build
-#- if [%COMPILER%]==[MinGW] echo "hello world"
-#- if [%COMPILER%]==[MinGW] gcc --version
-#- if [%COMPILER%]==[MinGW-w64] cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=C:\mingw64 -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ..
 
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
