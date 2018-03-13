@@ -44,7 +44,7 @@ before_test:
 - cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
 - cmd: createdb F18_test
 
-- sh: sudo apt-get remove -y libpq-dev:i386 libX11-dev:i386 libpcre3-dev:i386 libssl-dev:i386
+- sh: sudo apt-get remove -y libpq-dev:i386
 - sh: sudo apt install -y postgresql postgresql-contrib
 - sh: sudo service postgresql start
 - sh: sudo -u postgres createdb F18_test
