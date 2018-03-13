@@ -1,5 +1,9 @@
 #  Appveyor harbour application playground
 
+## Status
+
+[![Build status](https://ci.appveyor.com/api/projects/status/vkq9yeqm7ovbjvxf?svg=true)](https://ci.appveyor.com/project/hernad/appveyor-playground)
+
 ## Appveyor build
 
 commit messages must contain "BUILD_RELEASE"
