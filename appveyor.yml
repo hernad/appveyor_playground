@@ -34,13 +34,16 @@ configuration:
 
 services:
   - postgresql96
+  on:
+    BUILD_ARTIFACT: windows_x86
 
-SET PGUSER=postgres
-SET PGPASSWORD=Password12!
-PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
-createdb f18_test
 
-#before_build:
+before_build:
+  - cmd: SET PGUSER=postgres
+  - cmd: SET PGPASSWORD=Password12!
+  - cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
+  - cmd: createdb F18_test
+
 #- set Path=%CD%\%MINGW_DIR%\bin;%Path%
 #- echo %PATH%
 #- dir %MINGW_DIR%
