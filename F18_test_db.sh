@@ -1,8 +1,13 @@
 #!/bin/bash
 
-# x86_64 psql
+createdb F18_test
 
-PGPASSWORD=Password12! psql F18_test <<EOF
+psql -d F18_test <<EOF
+ALTER USER postgres WITH PASSWORD  'Password12!';
+\q
+EOF
+
+PGPASSWORD=Password12! psql -d F18_test <<EOF
 select version();
 \q
 EOF
