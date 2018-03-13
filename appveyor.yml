@@ -45,10 +45,10 @@ configuration:
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
 
-- sh: '%APPVEYOR_BUILD_FOLDER%/appveyor.sh'
+- sh: '${APPVEYOR_BUILD_FOLDER}/appveyor.sh'
 
 on_success:
-- cmd: cd C:\
+#- cmd: cd C:\
 - if [%BUILD_TYPE%]==[Release] echo "SUCCESS"
 
 
