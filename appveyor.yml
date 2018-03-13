@@ -24,7 +24,7 @@ environment:
     BUILD_ARTIFACT: windows_x86
 
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-    BUUILD_ARTIFACT: linux_x86
+    BUILD_ARTIFACT: linux_x86
 
 platform:
   - x86
@@ -63,9 +63,9 @@ on_success:
 # deploy: off
 
 
-#artifacts: 
+artifacts: 
   # relative to build folder
-  #- path: hello_$(BUILD_ARTIFACT)_$(APPVEYOR_REPO_TAG_NAME).zip
+  - path: hello_$(BUILD_ARTIFACT)_$(APPVEYOR_REPO_TAG_NAME).zip
 
 
 deploy:
@@ -76,7 +76,7 @@ deploy:
   repo: appveyor
   package: hello-windows-x86
   version: '$(APPVEYOR_REPO_TAG_NAME)'
-  artifact: hello_windows_x86_$(APPVEYOR_REPO_TAG_NAME).zip
+  #artifact: 'hello_windows_x86_$(APPVEYOR_REPO_TAG_NAME).zip'
   api_key:
     secure: CmTociD4LaDugZgY8k5Esn0tcA1nGvV583hTrbUGmGrnBtb6B1xyArOBmFzN5TjTLuRrfB9kBNiYtqyhBf0v2HZE8uKm2cl8zGoYTU8Afb0=
   publish: true
@@ -93,7 +93,7 @@ deploy:
   repo: appveyor
   package: hello-linux-x86
   version: '$(APPVEYOR_REPO_TAG_NAME)'
-  artifact: hello_linux_x86_$(APPVEYOR_REPO_TAG_NAME).zip
+  #artifact: 'hello_linux_x86_$(APPVEYOR_REPO_TAG_NAME).zip'
   api_key:
     secure: CmTociD4LaDugZgY8k5Esn0tcA1nGvV583hTrbUGmGrnBtb6B1xyArOBmFzN5TjTLuRrfB9kBNiYtqyhBf0v2HZE8uKm2cl8zGoYTU8Afb0=
   publish: true
