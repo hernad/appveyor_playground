@@ -1,6 +1,6 @@
-image: 
-  - Visual Studio 2015
-  - Ubuntu
+#image: 
+#  - Visual Studio 2015
+#  - Ubuntu
 
 only_commits:
   message: /BUILD_RELEASE/
