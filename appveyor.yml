@@ -45,9 +45,8 @@ before_build:
 - sh: sudo apt install -y postgresql postgresql-contrib
 - sh: sudo service postgresql start
 - sh: sudo -u postgres createdb F18_test
-- sh: su -c "psql -d F18_test -c \"ALTER USER postgres WITH PASSWORD  'Password12\!'\"" postgres
+- sh: sudo -u postgres alter_password.sh
 
-su -c "echo a ; whoami; psql --help" postgres
 
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
