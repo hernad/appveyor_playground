@@ -12,7 +12,7 @@ gcc --version
 
 sudo dpkg --add-architecture i386
 curl -LO https://dl.bintray.com/hernad/harbour/hb-linux-i386.tar.gz
-tar xvf hb-linux-i386.tar.gz
+tar xf hb-linux-i386.tar.gz
 
 export HB_PLATFORM=linux
 export HB_ROOT=$(pwd)/hb-linux-i386
@@ -21,12 +21,13 @@ export HB_USER_DFLAGS='-m32 -L/usr/lib32'
 export HB_USER_LDFLAGS='-m32 -L/usr/lib32'
 
 sudo apt-get update -y
-sudo apt install -y g++-multilib gcc-multilib lib32stdc++6  lib32readline5 libpq-dev:i386
+sudo apt install -y g++-multilib gcc-multilib libc6:i386 \
+     libncurses5:i386 libstdc++6:i386 lib32stdc++6  libpq-dev:i386 lib32z1
 
 PATH=$HB_ROOT/bin:$PATH
 
 echo $PATH
-ls -lh hb-linux-i386/bin
+#ls -lh hb-linux-i386/bin
 
 hbmk2 -version
 hbmk2 -gtstd hello.prg
