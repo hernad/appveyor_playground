@@ -10,8 +10,7 @@ REQUEST SQLMIX
 ANNOUNCE RDDSYS
 
 ? "hello world from harbour :)"
-?
-?
+
 
 ? "RDDs:"; AEval( rddList(), {| x | QQOut( "", x ) } )
 
@@ -22,7 +21,8 @@ IF rddInfo( RDDI_CONNECT, { "POSTGRESQL", "postgresql://posgres:Password12!@loca
 ENDIF
 
 rddSetDefault( "SQLMIX" )
-
 dbUseArea( .T., , "SELECT version() AS ver", "INFO" )
-
 ? field->ver
+
+?
+?
