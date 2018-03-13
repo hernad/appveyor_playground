@@ -32,7 +32,6 @@ cd %APPVEYOR_BUILD_FOLDER%
 bash -xlc "cd /c ; curl -LO https://dl.bintray.com/hernad/windows/hbwin.tar.gz ; tar xf hbwin.tar.gz"
 set PATH=C:\hbwin\bin;%PATH%
 
-
 rem Build/test scripting
 bash -xlc "set pwd"
 REM bash -xlc "env"
