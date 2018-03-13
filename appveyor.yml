@@ -33,10 +33,14 @@ platform:
 configuration:
   - Release
 
-services:
-  - postgresql96
+#services:
+#  - postgresql96
 
 before_build:
+
+# https://help.appveyor.com/discussions/questions/2356-conditionally-enable-services
+
+- ps: Start-Service postgresql-x64-9.6
 - cmd: SET PGUSER=postgres
 - cmd: SET PGPASSWORD=Password12!
 - cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
