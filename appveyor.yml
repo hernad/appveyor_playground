@@ -36,6 +36,11 @@ configuration:
 #services:
 #  - postgresql96
 
+build_script:
+- cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
+
+- sh: '${APPVEYOR_BUILD_FOLDER}/appveyor.sh'
+
 before_test:
 # https://help.appveyor.com/discussions/questions/2356-conditionally-enable-services
 - ps: Start-Service postgresql-x64-9.6
@@ -49,10 +54,6 @@ before_test:
 - sh: sudo service postgresql start
 - sh: sudo -u postgres ${APPVEYOR_BUILD_FOLDER}/F18_test_db.sh
 
-build_script:
-- cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
-
-- sh: '${APPVEYOR_BUILD_FOLDER}/appveyor.sh'
 
 test_script:
 - cmd: ./hello.exe
