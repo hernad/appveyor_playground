@@ -10,7 +10,7 @@ gcc --version
 
 # https://redmine.bring.out.ba/issues/35387
 
-dpkg --add-architecture i386
+sudo dpkg --add-architecture i386
 curl -LO https://dl.bintray.com/hernad/harbour/hb-linux-i386.tar.gz
 tar xvf hb-linux-i386.tar.gz
 
