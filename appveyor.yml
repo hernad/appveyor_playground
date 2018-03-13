@@ -34,8 +34,6 @@ configuration:
 
 services:
   - postgresql96
-  on:
-    BUILD_ARTIFACT: windows_x86
 
 SET PGUSER=postgres
 SET PGPASSWORD=Password12!
