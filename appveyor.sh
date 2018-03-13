@@ -20,6 +20,7 @@ export HB_USER_CFLAGS=-m32
 export HB_USER_DFLAGS='-m32 -L/usr/lib32'
 export HB_USER_LDFLAGS='-m32 -L/usr/lib32'
 
+sudo apt-get update -y
 sudo apt install -y g++-multilib gcc-multilib lib32stdc++6  lib32readline5 libpq-dev:i386
 
 PATH=$HB_ROOT/bin:$PATH
