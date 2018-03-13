@@ -36,26 +36,29 @@ configuration:
 #services:
 #  - postgresql96
 
-before_build:
-
+before_test:
 # https://help.appveyor.com/discussions/questions/2356-conditionally-enable-services
-
 - ps: Start-Service postgresql-x64-9.6
 - cmd: SET PGUSER=postgres
 - cmd: SET PGPASSWORD=Password12!
 - cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
 - cmd: createdb F18_test
 
+- sh: sudo apt-get remove -y libpq-dev:i386
 - sh: sudo apt install -y postgresql postgresql-contrib
 - sh: sudo service postgresql start
 - sh: sudo -u postgres createdb F18_test
-- sh: sudo -u postgres alter_password.sh
-
+- sh: sudo -u postgres F18_alter_password.sh
+- sh: sudo -u postgres F18_test_db.sh
 
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
 
 - sh: '${APPVEYOR_BUILD_FOLDER}/appveyor.sh'
+
+test_script:
+- cmd: ./hello.exe
+- sh: ./hello
 
 on_success:
 #- cmd: cd C:\

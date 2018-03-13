@@ -33,12 +33,5 @@ echo $PATH
 hbmk2 hello.hbp
 #./hello
 
-# x86_64 psql
-sudo apt-get remove libpq-dev:i386
-sudo apt-get -y install psql
-PGPASSWORD=Password12! psql -h localhost -U postgres <<EOF
-select version()
-\q
-EOF
 
 zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello
