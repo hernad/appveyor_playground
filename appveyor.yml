@@ -47,9 +47,7 @@ before_test:
 - sh: sudo apt-get remove -y libpq-dev:i386
 - sh: sudo apt install -y postgresql postgresql-contrib
 - sh: sudo service postgresql start
-- sh: sudo -u postgres createdb F18_test
-- sh: sudo -u postgres F18_alter_password.sh
-- sh: sudo -u postgres F18_test_db.sh
+- sh: sudo -u postgres ${APPVEYOR_BUILD_FOLDER}/F18_test_db.sh
 
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
