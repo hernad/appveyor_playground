@@ -2,13 +2,6 @@
 #  - Visual Studio 2015
 #  - Ubuntu
 
-only_commits:
-  message: /BUILD_RELEASE/
-
-skip_commits:
-  author: /John|Jack/
-
-
 environment:
   # these variables are common to all jobs
   BUILD_OWNER: hernad
@@ -18,13 +11,21 @@ environment:
   matrix:
   # - MSYS2_ARCH: x86_64
   #   MSYSTEM: MINGW64
+  
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
     MSYS2_ARCH: i686
     MSYSTEM: MINGW32
     BUILD_ARTIFACT: windows_x86
 
-  #- APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-  #  BUILD_ARTIFACT: linux_x86
+  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+    BUILD_ARTIFACT: linux_x86
+
+only_commits:
+  message: /BUILD_RELEASE/
+
+skip_commits:
+  author: /John|Jack/
+
 
 platform:
   - x86
@@ -32,20 +33,32 @@ platform:
 configuration:
   - Release
 
-services:
-  - postgresql96
-
-before_build:
-- cmd: SET PGUSER=postgres
-- cmd: SET PGPASSWORD=Password12!
-- cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
-- cmd: createdb F18_test
-
+#services:
+#  - postgresql96
 
 build_script:
 - cmd: '%APPVEYOR_BUILD_FOLDER%\appveyor.bat'
 
 - sh: '${APPVEYOR_BUILD_FOLDER}/appveyor.sh'
+
+before_test:
+# https://help.appveyor.com/discussions/questions/2356-conditionally-enable-services
+- ps: Start-Service postgresql-x64-9.6
+- cmd: SET PGUSER=postgres
+- cmd: SET PGPASSWORD=Password12!
+- cmd: PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
+- cmd: createdb F18_test
+
+- sh: sudo apt-get remove -y libpq-dev:i386
+- sh: sudo apt install -y postgresql postgresql-contrib
+- sh: sudo service postgresql start
+- sh: sudo -u postgres ${APPVEYOR_BUILD_FOLDER}/F18_test_db.sh
+
+
+test_script:
+- cmd: ./hello.exe
+#- sh: LD_LIBRARY_PATH=. ./hello || echo nebitno
+- sh: echo nebitno
 
 on_success:
 #- cmd: cd C:\

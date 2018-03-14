@@ -7,11 +7,10 @@ libs=hbtip
 
 #{F18_GT_CONSOLE&unix}gt=gtnul
 #{F18_GT_CONSOLE&unix}gt=gttrm
-
 #{!F18_GT_CONSOLE&unix}gt=gtxwc
-
 #{allwin}gt=gtwvt
-{allwin}gt=gtstd
+
+gt=gtstd
 
 libs=hbpgsql
 {unix}libs=pq

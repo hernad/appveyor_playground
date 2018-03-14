@@ -26,6 +26,7 @@ oServer := TPQServer():New( "localhost", "F18_test", "postgres", "Password12!" )
 
 pConn := oServer:pDB
 ? "oServer", oServer, "pConn", pConn
+
 // postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
 IF rddInfo( 1001, { "POSTGRESQL", pConn } ) == 0
       ? "Could not connect to the server"
