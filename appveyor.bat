@@ -50,5 +50,5 @@ REM postgresql dlls libpq.dll i kompanija
 bash -xlc "curl -LO https://dl.bintray.com/hernad/F18/postgresql_windows_x86_dlls.zip; unzip postgresql_windows_x86_dlls.zip"
 
 REM run hello.exe
-bash -xlc "./hello.exe ; zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
+bash -xlc "zip hello_${BUILD_ARTIFACT}_${APPVEYOR_REPO_TAG_NAME}.zip hello.exe"
 

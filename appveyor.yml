@@ -57,8 +57,7 @@ before_test:
 
 test_script:
 - cmd: ./hello.exe
-#- sh: LD_LIBRARY_PATH=. ./hello || echo nebitno
-- sh: echo nebitno
+- sh: LD_LIBRARY_PATH=. ./hello
 
 on_success:
 #- cmd: cd C:\
