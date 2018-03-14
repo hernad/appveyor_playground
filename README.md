@@ -6,7 +6,7 @@
 
 ## Appveyor build
 
-commit messages must contain "BUILD_RELEASE"
+To trigger build git commit messages must contain "BUILD_RELEASE"
 
 example:
 <pre>
