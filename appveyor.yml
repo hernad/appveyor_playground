@@ -56,7 +56,9 @@ before_test:
 
 
 test_script:
-- cmd: ./hello.exe
+- cmd: cd %APPVEYOR_BUILD_FOLDER%
+- cmd: hello.exe
+
 - sh: LD_LIBRARY_PATH=. ./hello
 
 on_success:
